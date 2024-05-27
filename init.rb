@@ -1,0 +1,21 @@
+# Plugin submenus
+require 'redmine'
+
+Redmine::Plugin.register :redmine_submenus do
+  name 'Submenus'
+  author 'Stefan Mischke'
+  description 'Adds dropdown menus to project titles and wiki titles, to easily navigate to sub projects or sub pages. Quasi the counterpart to the breadcrumb trail.'
+  version '0.1.1'
+
+  # Plugin settings
+  settings default: {
+    'show_subprojects_menu' => '1',
+    'show_subwiki_menu' => '1',
+    'dropdown_menu_symbol' => '»'
+  }, partial: 'settings/sub_settings'
+
+  # Load patches
+  Rails.configuration.to_prepare do
+    require_dependency 'sub_menu_patches'
+  end
+end

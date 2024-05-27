@@ -1,0 +1,17 @@
+<h3>Show Dropdown Menus for:</h3>
+
+<p>
+	<%= label_tag 'settings[show_subprojects_menu]', 'Sub Projects' %>
+	<%= check_box_tag 'settings[show_subprojects_menu]', '1', @settings['show_subprojects_menu'] %>
+</p>
+<p>
+	<%= label_tag 'settings[show_subwiki_menu]', 'Sub Pages on Wiki' %>
+	<%= check_box_tag 'settings[show_subwiki_menu]', '1', @settings['show_subwiki_menu'] %>
+</p>
+
+<h3>Style:</h3>
+
+<p>
+	<%= label_tag 'settings[dropdown_menu_symbol]', 'Dropdown Menu Symbol' %>
+	<%= text_field_tag 'settings[dropdown_menu_symbol]', @settings['dropdown_menu_symbol'] %>
+</p>
