@@ -59,26 +59,7 @@
     <hr />
 <% end %>
 
-
-
-<% if @page.children.present? && Setting.plugin_redmine_submenus['show_subwiki_menu'] == '1' %>
-	<span class="drdn" style="float: left;">
-		<!-- <h1 class="drdn-trigger"><%= @page.title %>&nbsp;»</h1> -->
-		<h1 class="drdn-trigger" style="position: relative; padding-right: 0.1em;"><%= Setting.plugin_redmine_submenus['dropdown_menu_symbol'] %></h1>
-	
-	<div class="drdn-content" style="right: auto; top: 2.8em;">
-		<div class="drdn-items">
-		    <% @page.children.each do |child| %>
-		      <%= link_to( h(child.pretty_title), {:controller => 'wiki', :action => 'show', :id => child.title, :project_id => child.project, :version => nil} )%>
-		    <% end %>
-		</div>
-	</div>
-	</span>
-<% end %>
-
-
-
-<%= render(:partial => "wiki/content", :locals => {:content => @content}) %>
+<%= call_hook(:view_wiki_show_content, :project => @project, :page => @page, :content => @content) %>
 
 <fieldset class="collapsible collapsed hide-when-print">
   <legend onclick="toggleFieldset(this);" class="icon icon-collapsed"><%= l(:label_attachment_plural) %> (<%= @page.attachments.length %>)</legend>

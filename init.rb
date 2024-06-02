@@ -17,5 +17,6 @@ Redmine::Plugin.register :redmine_submenus do
   # Load patches
   Rails.configuration.to_prepare do
     require_dependency 'sub_menu_patches'
+    require_dependency 'wiki_content_hook'
   end
 end
