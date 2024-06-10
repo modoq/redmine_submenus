@@ -26,13 +26,11 @@ module NewSubprojectPatch
             ul.add_child(new_subproject_link)
           end
           
-          # Convert the modified Nokogiri document back to HTML
-          menu = menu_doc.to_html
+          # Convert the modified Nokogiri document back to HTML, while unescaping special characters
+          menu = menu_doc.to_html.gsub(/>\s+</, '><')
         end
         
-        # CGI.unescapeHTML is used to decode any HTML entities back to their original characters.
-        # This ensures that the rendered HTML is displayed correctly in the browser.
-        CGI.unescapeHTML(menu).html_safe
+        menu.html_safe
       end
     end
   end
