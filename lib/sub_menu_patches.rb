@@ -40,7 +40,7 @@ module SubMenuPatches
                 content_tag(:div, class: 'drdn-items') do
                   # Map each subproject to a link element
                   @uprojects.map do |uproject|
-                    link_to_project(uproject, {:jump => current_menu_item}, :style => 'font-size: 0.9rem; font-weight: initial; opacity: initial;')
+                    link_to_project(uproject, {:jump => current_menu_item}, :style => 'font-size: 0.9rem; font-weight: initial; opacity: initial; color: initial;')
                   end.join.html_safe
                 end
               end

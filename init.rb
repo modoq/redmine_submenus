@@ -19,5 +19,6 @@ Redmine::Plugin.register :redmine_submenus do
     require_dependency 'sub_menu_patches'
     require_dependency 'wiki_content_hook'
     require_dependency 'new_subproject_patch'
+    require_dependency 'sub_macros'
   end
 end
