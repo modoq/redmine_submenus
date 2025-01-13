@@ -5,7 +5,7 @@ Redmine::Plugin.register :redmine_submenus do
   name 'Submenus'
   author 'Stefan Mischke'
   description 'Adds dropdown menus to project titles and wiki titles, to easily navigate to sub projects or sub pages. Quasi the counterpart to the breadcrumb trail.'
-  version '0.1.1'
+  version '0.2.0'
 
   # Plugin settings
   settings default: {
